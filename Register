@@ -1,0 +1,23 @@
+#question 2
+li	$t0,5
+li	$t1,2
+li	$t2,10
+li	$t3,-2
+li      $t4,0     #sum register
+mul    	$t1,$t1,$t2  # 2*10
+add    	$t1,$t1,$t0  #5+2*10
+add    	$t4,$t1,$t3  #5+2*10-2
+#print integer  
+li 	$v0,1
+move 	$a0,$t4
+syscall
+#question 3
+li	$t5,0x00000000		#loading register $t5 with 0
+and	$t0,$t0,$t5		#clearing t0 using and
+and	$t1,$t1,$t5		#clearing t1 using and
+and	$t2,$t2,$t5
+and	$t3,$t3,$t5
+and	$t4,$t4,$t5
+and	$a0,$a0,$t5
+li $v0, 10           # Load the exit syscall code (10) into $v0
+syscall              # Invoke the exit syscall
