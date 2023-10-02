@@ -1,0 +1,18 @@
+# .data section
+.data
+hello: .asciiz "Hello, world!"
+newline: .asciiz "\n"
+# .text section
+.text
+main:
+# Print "Hello, world!"
+li $v0, 4            # Load $v0 with the print string syscall code (4).
+la $a0, hello        # Load the "Hello, world!" string's address into $a0.
+syscall              # Invoke the print string syscall
+# Print a newline
+li $v0, 4            # Load $v0 with the print string syscall code (4).
+la $a0, newline      # Load the newline string's address into $a0.
+syscall              # Invoke the print string syscall
+# Exit the program
+li $v0, 10           # Load the exit syscall code (10) into $v0
+syscall              # Invoke the exit syscall
